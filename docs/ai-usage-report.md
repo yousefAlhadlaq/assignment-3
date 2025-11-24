@@ -4,10 +4,8 @@
 
 This document explains how I used AI while working on this assignment. I want to be transparent about what AI helped with and what I did myself.
 
-**AI Tool**: Claude Code (Claude 3.5 Sonnet)
-**Student**: Yousef Alhadlaq
-**Course**: SWE363 - Assignment 3
-**Date**: November 2024
+**AI Tool**: Claude Code and chate gbt
+
 
 ---
 
