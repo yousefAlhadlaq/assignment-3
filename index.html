@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yousef Alhadlaq - Cybersecurity & Data Science Portfolio">
+  <title>Yousef Alhadlaq | Cybersecurity & Data Science Portfolio</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header with navigation -->
+  <header>
+    <nav>
+      <div class="nav-brand">
+        <img src="assets/images/KFUPM_LOGO.jpg" alt="KFUPM Logo" class="university-logo">
+        <span class="logo">YA</span>
+        <span class="brand-name">Yousef Alhadlaq</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
+          <span class="theme-icon">🌓</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Visit Timer Banner -->
+  <div class="timer-banner" id="timerBanner">
+    <span id="visitTimer">Time on site: 00:00</span>
+    <span id="welcomeBack"></span>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1 class="hero-title">Hi, I'm <span class="highlight">Yousef Alhadlaq</span></h1>
+        <p class="hero-subtitle" id="dynamicGreeting">Welcome to my portfolio</p>
+        <p class="hero-description">Computer Science Student | Cybersecurity Enthusiast | Data Science Explorer</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-image">
+            <img src="assets/images/my_personal_photo.JPG" alt="Yousef Alhadlaq" class="profile-photo">
+          </div>
+          <div class="about-text">
+            <p class="lead">Turning complex risks into intelligent solutions.</p>
+            <p>Hi, I'm Yousef Alhadlaq, a Computer Science student at KFUPM with a strong passion for exploring new technologies and experimenting with creative solutions.</p>
+            <p>I'm especially interested in <strong>cybersecurity</strong> and <strong>data science</strong>, where I enjoy tackling complex challenges and building adaptive systems. I'm constantly learning and applying cutting-edge techniques to solve real-world problems.</p>
+
+            <!-- User Preference Section -->
+            <div class="user-preference">
+              <h3>What are you interested in?</h3>
+              <div class="preference-buttons">
+                <button class="pref-btn" data-level="all">All Projects</button>
+                <button class="pref-btn" data-level="beginner">Beginner Level</button>
+                <button class="pref-btn" data-level="intermediate">Intermediate Level</button>
+                <button class="pref-btn" data-level="advanced">Advanced Level</button>
+              </div>
+              <p class="preference-message" id="preferenceMessage"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section with Filtering and Sorting -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+
+        <!-- Project Controls -->
+        <div class="project-controls">
+          <div class="filter-group">
+            <label for="categoryFilter">Filter by Category:</label>
+            <select id="categoryFilter" class="filter-select">
+              <option value="all">All Projects</option>
+              <option value="cybersecurity">Cybersecurity</option>
+              <option value="data-science">Data Science</option>
+              <option value="machine-learning">Machine Learning</option>
+              <option value="web-dev">Web Development</option>
+            </select>
+          </div>
+
+          <div class="sort-group">
+            <label for="sortProjects">Sort by:</label>
+            <select id="sortProjects" class="sort-select">
+              <option value="date-desc">Newest First</option>
+              <option value="date-asc">Oldest First</option>
+              <option value="name-asc">Name (A-Z)</option>
+              <option value="name-desc">Name (Z-A)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Projects will be dynamically loaded here -->
+        </div>
+
+        <p class="no-projects" id="noProjects" style="display: none;">
+          No projects match your current filters.
+        </p>
+      </div>
+    </section>
+
+    <!-- GitHub Repositories Section -->
+    <section id="github" class="github-section">
+      <div class="container">
+        <h2 class="section-title">My GitHub Repositories</h2>
+        <p class="section-description">Live data from my GitHub account</p>
+
+        <div class="github-stats" id="githubStats">
+          <div class="stat-card">
+            <span class="stat-value" id="repoCount">-</span>
+            <span class="stat-label">Repositories</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="totalStars">-</span>
+            <span class="stat-label">Total Stars</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="totalForks">-</span>
+            <span class="stat-label">Total Forks</span>
+          </div>
+        </div>
+
+        <div class="github-repos" id="githubRepos">
+          <div class="loading">Loading repositories...</div>
+        </div>
+
+        <div class="api-error" id="apiError" style="display: none;">
+          <p>Unable to load GitHub repositories at this time. Please try again later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-description">Have a question or want to work together?</p>
+
+        <div class="contact-content">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                minlength="2"
+                placeholder="Your full name"
+              >
+              <span class="validation-icon" id="nameValidation"></span>
+              <span class="error-message" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your.email@example.com"
+              >
+              <span class="validation-icon" id="emailValidation"></span>
+              <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                minlength="5"
+                placeholder="What's this about?"
+              >
+              <span class="validation-icon" id="subjectValidation"></span>
+              <span class="error-message" id="subjectError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                minlength="10"
+                maxlength="1000"
+                rows="6"
+                placeholder="Your message here..."
+              ></textarea>
+              <div class="message-meta">
+                <span class="validation-icon" id="messageValidation"></span>
+                <span class="char-counter" id="charCounter">0 / 1000</span>
+              </div>
+              <span class="error-message" id="messageError"></span>
+            </div>
+
+            <div class="form-status">
+              <span class="draft-indicator" id="draftIndicator"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+              Send Message
+            </button>
+          </form>
+
+          <!-- Success Message -->
+          <div class="success-card" id="successMessage">
+            <div class="success-icon">✓</div>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for reaching out. I'll get back to you soon.</p>
+            <button class="btn btn-secondary" id="sendAnotherBtn">Send Another Message</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Yousef Alhadlaq. Built with passion for cybersecurity and data science.</p>
+      <div class="social-links">
+        <a href="https://github.com/yousefalhadlaq" target="_blank" aria-label="GitHub">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
